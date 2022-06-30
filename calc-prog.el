@@ -38,6 +38,7 @@
 ;;; Code:
 (require 'calc)
 (require 'calc-mode)
+(require 'calc-units)
 
 ;; convert between iec representation to hex
 ;; To use:
@@ -55,6 +56,7 @@
   (Byte "8 * bit" "A byte is the usual grouping of bits to be used in computational storage")
   (bit nil "The most basic computational storage unit")
   ))
+(setq math-units-table nil)
 
 ;; shift numbers hex numbers
 (defun prog-shift-left-by (number shift)
