@@ -1,0 +1,16 @@
+#+title: Readme - Calc Prog
+#+startup: showall indent
+#+options: toc:nil
+
+* Calc Prog
+This is a small extension to the Emacs calc package. It aims to do the following:
+- Add common IEC binary units
+  - Multi-byte units found at
+    https://en.wikipedia.org/wiki/Byte#Multiple-byte_units
+- Easier shifting functions with
+  - =prog-shift-left-by=
+  - =prog-shift-right-by=
+- Masking function with
+  - =prog-mask=
+- Kill number to =0xNNN= format, suitable for programming languages that support that.
+  - =prog-hex-kill=
