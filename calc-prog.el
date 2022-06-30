@@ -59,17 +59,15 @@
 (setq math-units-table nil)
 
 ;; shift numbers hex numbers
-(defun prog-shift-left-by (number shift)
-  "Take first two items on the stack. Logical shift NUMBER by SHIFT bits
-   to left and return. "
-  (interactive 2 "shft")
+(defmath prog-shift-left-by (number shift)
+  "Take first two items on the stack. Logical shift NUMBER by SHIFT bits to left and return. "
+  (interactive 2 "shift")
   (lsh number shift)
   )
 
-(defun prog-shift-right-by (number shift)
-  "Take first two items on the stack. Logical shift NUMBER by SHIFT bits
-   to right and return. "
-  (interactive 2 "shft")
+(defmath prog-shift-right-by (number shift)
+  "Take first two items on the stack. Logical shift NUMBER by SHIFT bits to right and return. "
+  (interactive 2 "shift")
   (lsh number (* -1 shift))
   )
 
