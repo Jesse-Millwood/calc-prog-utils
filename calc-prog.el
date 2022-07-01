@@ -36,8 +36,6 @@
 
 
 ;;; Code:
-(require 'calc)
-(require 'calc-mode)
 (require 'calc-units)
 
 ;; convert between iec representation to hex
@@ -58,22 +56,20 @@
   ))
 (setq math-units-table nil)
 
-;; shift numbers hex numbers
 (defmath prog-shift-left-by (number shift)
   "Take first two items on the stack. Logical shift NUMBER by SHIFT bits to
 left and return. "
-  (interactive 2 "Left shift")
+  (interactive 2 "l-shft")
   (lsh number shift)
   )
 
 (defmath prog-shift-right-by (number shift)
   "Take first two items on the stack. Logical shift NUMBER by SHIFT bits to
 right and return. "
-  (interactive 2 "Right Shift")
+  (interactive 2 "r-shft")
   (lsh number (* -1 shift))
   )
 
-;; mask numbers hex numbers
 (defmath prog-mask (number mask)
   "Take first two items on the stack. Apply the MASK to the
    NUMBER with an AND operation and return the result."
