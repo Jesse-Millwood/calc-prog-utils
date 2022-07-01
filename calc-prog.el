@@ -57,28 +57,25 @@
 (setq math-units-table nil)
 
 (defmath prog-shift-left-by (number shift)
-  "Take first two items on the stack. Logical shift NUMBER by SHIFT bits to
-left and return. "
+  "Take first two items on the stack.  Logical shift NUMBER by SHIFT bits to left and return."
   (interactive 2 "l-shft")
   (lsh number shift)
   )
 
 (defmath prog-shift-right-by (number shift)
-  "Take first two items on the stack. Logical shift NUMBER by SHIFT bits to
-right and return. "
+  "Take first two items on the stack.  Logical shift NUMBER by SHIFT bits to right and return."
   (interactive 2 "r-shft")
   (lsh number (* -1 shift))
   )
 
 (defmath prog-mask (number mask)
-  "Take first two items on the stack. Apply the MASK to the
-   NUMBER with an AND operation and return the result."
+  "Take first two items on the stack.  Apply the MASK to the NUMBER with an AND operation and return the result."
   (interactive 2 "Masked")
   (logand number mask)
   )
 
 (defmath prog-hex-kill (n)
-  "Kill the number on the top of the stack as the hex representation"
+  "Kill the number on the top of the stack as the hex representation."
   (interactive 1 "hex-kill")
   (message "hello")
   (kill-new (format "0x%X" n))
