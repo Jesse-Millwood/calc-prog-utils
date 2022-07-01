@@ -3,8 +3,9 @@
 ;; Author: Jesse Millwood
 ;; Maintainer: Jesse Millwood
 ;; Version: 0.1
-;; Homepage: none
-;; Keywords: calc, programmers
+;; Homepage: https://github.com/Jesse-Millwood/calc-prog
+;; Keywords: tools, convenience
+;; Package-Requires: ((emacs "24.1"))
 
 
 ;; This file is not part of GNU Emacs
@@ -52,35 +53,30 @@
   (MiB "(1024 ^ 2) * Byte" "IEC Mebibyte")
   (KiB "1024 * Byte" "IEC Kibibyte 1024 bytes")
   (Byte "8 * bit" "A byte is the usual grouping of bits to be used in computational storage")
-  (bit nil "The most basic computational storage unit")
-  ))
+  (bit nil "The most basic computational storage unit")))
 (setq math-units-table nil)
 
 (defmath prog-shift-left-by (number shift)
   "Take first two items on the stack.  Logical shift NUMBER by SHIFT bits to left and return."
   (interactive 2 "l-shft")
-  (lsh number shift)
-  )
+  (lsh number shift))
 
 (defmath prog-shift-right-by (number shift)
   "Take first two items on the stack.  Logical shift NUMBER by SHIFT bits to right and return."
   (interactive 2 "r-shft")
-  (lsh number (* -1 shift))
-  )
+  (lsh number (* -1 shift)))
 
 (defmath prog-mask (number mask)
   "Take first two items on the stack.  Apply the MASK to the NUMBER with an AND operation and return the result."
   (interactive 2 "Masked")
-  (logand number mask)
-  )
+  (logand number mask))
 
 (defmath prog-hex-kill (n)
   "Kill the number on the top of the stack as the hex representation."
   (interactive 1 "hex-kill")
   (message "hello")
   (kill-new (format "0x%X" n))
-  (+ 0 n)
-  )
+  (+ 0 n))
 
 (provide 'calc-prog)
 
