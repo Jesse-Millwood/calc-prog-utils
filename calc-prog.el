@@ -56,21 +56,25 @@
   (bit nil "The most basic computational storage unit")))
 (setq math-units-table nil)
 
+;;;###autoload
 (defmath prog-shift-left-by (number shift)
   "Take first two items on the stack.  Logical shift NUMBER by SHIFT bits to left and return."
   (interactive 2 "l-shft")
   (lsh number shift))
 
+;;;###autoload
 (defmath prog-shift-right-by (number shift)
   "Take first two items on the stack.  Logical shift NUMBER by SHIFT bits to right and return."
   (interactive 2 "r-shft")
   (lsh number (* -1 shift)))
 
+;;;###autoload
 (defmath prog-mask (number mask)
   "Take first two items on the stack.  Apply the MASK to the NUMBER with an AND operation and return the result."
   (interactive 2 "Masked")
   (logand number mask))
 
+;;;###autoload
 (defmath prog-hex-kill (n)
   "Kill the number on the top of the stack as the hex representation."
   (interactive 1 "hex-kill")
