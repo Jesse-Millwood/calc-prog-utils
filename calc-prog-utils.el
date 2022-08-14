@@ -1,4 +1,4 @@
-;;; calc-prog.el --- Calc programmers utilities -*- lexical-binding: t -*-
+;;; calc-prog-utils.el --- Calc programmers utilities -*- lexical-binding: t -*-
 
 ;; Author: Jesse Millwood
 ;; Maintainer: Jesse Millwood
@@ -37,7 +37,6 @@
 
 
 ;;; Code:
-(require 'calc-units)
 
 ;; convert between iec representation to hex
 ;; To use:
@@ -46,7 +45,7 @@
 ;;  - Convert to byte: u c Byte
 ;;  - Display in binary: d 2
 ;;  - Show grouping: d g
-(setq math-additional-units '(
+(setq prog-math-additional-units '(
   (PiB "(1024 ^ 5) * Byte" "IEC Pebibyte")
   (TiB "(1024 ^ 4) * Byte" "IEC Tebibyte")
   (GiB "(1024 ^ 3) * Byte" "IEC Gibibbyte")
@@ -54,7 +53,7 @@
   (KiB "1024 * Byte" "IEC Kibibyte 1024 bytes")
   (Byte "8 * bit" "A byte is the usual grouping of bits to be used in computational storage")
   (bit nil "The most basic computational storage unit")))
-(setq math-units-table nil)
+(setq math-additional-units (append math-additional-units prog-math-additional-units))
 
 ;;;###autoload
 (defmath prog-shift-left-by (number shift)
@@ -82,6 +81,6 @@
   (kill-new (format "0x%X" n))
   (+ 0 n))
 
-(provide 'calc-prog)
+(provide 'calc-prog-utils)
 
-;;; calc-prog.el ends here
+;;; calc-prog-utils.el ends here
