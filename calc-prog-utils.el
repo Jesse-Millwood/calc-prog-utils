@@ -34,11 +34,8 @@
 ;;  - Easier shifting function
 ;;  - Masking functions
 ;;  - Better kill/yank functions
-
-
-;;; Code:
-
-;; convert between iec representation to hex
+;;
+;; To convert between iec representation to hex
 ;; To use:
 ;;  - Enter Algebra mode: '
 ;;  - Enter number: 64 MiB
@@ -46,6 +43,9 @@
 ;;  - Display in binary: d 2
 ;;  - Show grouping: d g
 (setq prog-math-additional-units '(
+
+
+;;; Code:
   (PiB "(1024 ^ 5) * Byte" "IEC Pebibyte")
   (TiB "(1024 ^ 4) * Byte" "IEC Tebibyte")
   (GiB "(1024 ^ 3) * Byte" "IEC Gibibbyte")
@@ -57,19 +57,25 @@
 
 ;;;###autoload
 (defmath prog-shift-left-by (number shift)
-  "Take first two items on the stack.  Logical shift NUMBER by SHIFT bits to left and return."
+  "Logical shift NUMBER by SHIFT bits to left.
+Use first two items on the stack.  First item is NUMBER and second
+ item is SHIFT."
   (interactive 2 "l-shft")
   (lsh number shift))
 
 ;;;###autoload
 (defmath prog-shift-right-by (number shift)
-  "Take first two items on the stack.  Logical shift NUMBER by SHIFT bits to right and return."
+  "Logical shift NUMBER by SHIFT bits to right.
+Use first two items on the stack.  First item is NUMBER and second
+ item is SHIFT."
   (interactive 2 "r-shft")
   (lsh number (* -1 shift)))
 
 ;;;###autoload
 (defmath prog-mask (number mask)
-  "Take first two items on the stack.  Apply the MASK to the NUMBER with an AND operation and return the result."
+  "Apply the MASK to the NUMBER with an AND operation.
+Use first two items on the stack.  First item is NUMBER and second
+ item is MASK."
   (interactive 2 "Masked")
   (logand number mask))
 
@@ -77,7 +83,6 @@
 (defmath prog-hex-kill (n)
   "Kill the number on the top of the stack as the hex representation."
   (interactive 1 "hex-kill")
-  (message "hello")
   (kill-new (format "0x%X" n))
   (+ 0 n))
 
