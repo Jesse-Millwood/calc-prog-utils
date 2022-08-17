@@ -42,18 +42,23 @@
 ;;  - Convert to byte: u c Byte
 ;;  - Display in binary: d 2
 ;;  - Show grouping: d g
-(setq prog-math-additional-units '(
 
 
 ;;; Code:
+(require 'calc-units)
+(defvar calc-prog-utils-math-additional-units '(
   (PiB "(1024 ^ 5) * Byte" "IEC Pebibyte")
   (TiB "(1024 ^ 4) * Byte" "IEC Tebibyte")
   (GiB "(1024 ^ 3) * Byte" "IEC Gibibbyte")
   (MiB "(1024 ^ 2) * Byte" "IEC Mebibyte")
   (KiB "1024 * Byte" "IEC Kibibyte 1024 bytes")
   (Byte "8 * bit" "A byte is the usual grouping of bits to be used in computational storage")
-  (bit nil "The most basic computational storage unit")))
-(setq math-additional-units (append math-additional-units prog-math-additional-units))
+  (bit nil "The most basic computational storage unit"))
+  "Additional math units that cover a few IEC binary units.")
+
+(mapc (lambda (unit) (add-to-list 'math-additional-units unit))
+      calc-prog-utils-math-additional-units)
+
 
 ;;;###autoload
 (defmath prog-shift-left-by (number shift)
