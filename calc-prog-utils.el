@@ -61,6 +61,10 @@
 (mapc (lambda (unit) (add-to-list 'math-additional-units unit))
       calc-prog-utils-math-additional-units)
 
+;; after changing `math-additional-units', `math-units-table' must be
+;; set to nil to ensure that the combined units table will be rebuilt:
+(setq math-units-table nil)
+
 
 ;;;###autoload
 (defmath prog-shift-left-by (number shift)
