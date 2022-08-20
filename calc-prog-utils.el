@@ -54,7 +54,7 @@
   (GiB "1024 ^ 3 * B" "Gibibbyte")
   (MiB "1024 ^ 2 * B" "Mebibyte")
   (KiB "1024 * B" "Kibibyte")
-  (Byte "8 * bit" "A byte is the usual grouping of bits to be used in computational storage")
+  (B "8 * bit" "A byte is the usual grouping of bits to be used in computational storage")
   (bit nil "The most basic computational storage unit"))
   "Additional math units that cover a few IEC binary units.")
 
