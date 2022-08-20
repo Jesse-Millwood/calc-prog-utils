@@ -39,7 +39,7 @@
 ;; To use:
 ;;  - Enter Algebra mode: '
 ;;  - Enter number: 64 MiB
-;;  - Convert to byte: u c Byte
+;;  - Convert to byte: u c B
 ;;  - Display in binary: d 2
 ;;  - Show grouping: d g
 
@@ -49,11 +49,11 @@
 (require 'calc)
 
 (defvar calc-prog-utils-math-additional-units '(
-  (PiB "(1024 ^ 5) * Byte" "IEC Pebibyte")
-  (TiB "(1024 ^ 4) * Byte" "IEC Tebibyte")
-  (GiB "(1024 ^ 3) * Byte" "IEC Gibibbyte")
-  (MiB "(1024 ^ 2) * Byte" "IEC Mebibyte")
-  (KiB "1024 * Byte" "IEC Kibibyte 1024 bytes")
+  (PiB "1024 ^ 5 * B" "Pebibyte")
+  (TiB "1024 ^ 4 * B" "Tebibyte")
+  (GiB "1024 ^ 3 * B" "Gibibbyte")
+  (MiB "1024 ^ 2 * B" "Mebibyte")
+  (KiB "1024 * B" "Kibibyte")
   (Byte "8 * bit" "A byte is the usual grouping of bits to be used in computational storage")
   (bit nil "The most basic computational storage unit"))
   "Additional math units that cover a few IEC binary units.")
