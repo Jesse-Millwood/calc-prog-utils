@@ -46,6 +46,8 @@
 
 ;;; Code:
 (require 'calc-units)
+(require 'calc)
+
 (defvar calc-prog-utils-math-additional-units '(
   (PiB "(1024 ^ 5) * Byte" "IEC Pebibyte")
   (TiB "(1024 ^ 4) * Byte" "IEC Tebibyte")
